@@ -45,8 +45,11 @@ def predict(model, session, image_file, save_image=True, output_folder=''):
     if save_image:
         filename, ext = os.path.splitext(os.path.basename(image_file.name))
         output_filename = filename + '_PREDICT' + ext
-        _save_predicted_image(image, results, os.path.join(output_folder, output_filename))
-        return os.path.join(output_folder, output_filename)
+        if output_folder != '':
+            if not os.path.exists(output_folder):
+                os.mkdir(output_folder)
+            _save_predicted_image(image, results, os.path.join(output_folder, output_filename))
+            return os.path.join(output_folder, output_filename)
 
     return results
 
