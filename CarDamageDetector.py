@@ -56,7 +56,7 @@ def predict(model, session, image_file, save_image=True, output_folder=''):
 
 def _save_predicted_image(image, results, output_path):
     r = results[0]
-    f, ax = plt.subplots(1, figsize=(image.shape[0] / 100, image.shape[1] / 100), frameon=False, dpi=100)
+    f, ax = plt.subplots(1, figsize=(image.shape[0]/float(100), image.shape[1]/float(100)), frameon=False, dpi=100)
     ax.axis('off')
     visualize.display_instances(image=image,
                                 boxes=r['rois'],

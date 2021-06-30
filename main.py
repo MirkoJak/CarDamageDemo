@@ -24,9 +24,9 @@ if uploaded_file is None:
 
 else:
     col_sx, col_dx = st.beta_columns(2)
-    col_sx.image(uploaded_file, caption='immagine di input')
+    col_sx.image(uploaded_file, caption='immagine di input', use_column_width='always')
     output_file = predict(model=m,
                           session=sess,
                           image_file=uploaded_file,
                           output_folder=r'output_images')
-    col_dx.image(output_file, caption='immagine di output')
+    col_dx.image(output_file, caption='immagine di output', use_column_width='always')
